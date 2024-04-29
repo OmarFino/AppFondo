@@ -1,0 +1,72 @@
+
+<div class="container mt-5 pt-5">
+  <div class="row justify-content-center">
+
+    <div class="col-12 col-xl-8 col-md-8">
+
+      <div class="card">
+        <div class="card-header">
+          <li class="list-group-item" *ngFor="let cliente of listacliente">
+            <div class="d-flex justify-content-between">
+                <label>{{cliente.name}}, saldo {{ cliente.balance }}</label>
+            </div>
+        </li>
+          
+        </div>
+        <div class="card-body">
+          <form [formGroup]="formularioFondo">
+
+            <div class="input-group mb-4">
+              <select class="form-control"  #gg>
+                <option *ngFor="let opcion of listaFondos" [value]="opcion.code">{{ opcion.name }} </option>
+              </select>
+              <!-- <input type="text" class="form-control" placeholder="Ingresar valor" formControlName="nombre" pattern="[0-9]+"> -->
+              <input type="text" class="form-control" #valor placeholder="Ingresar valor" formControlName="nombre" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+              <button class="btn btn-primary" type="button" [disabled]="formularioFondo.invalid"
+              (click)="agregarFondo(valor.value,gg.value)"
+              >Agregar</button>
+            </div>
+
+          </form>
+
+          <!-- <ul class="list-group">
+            <li class="list-group-item" *ngFor="let fondo of listaFondos">
+                <div class="d-flex justify-content-between">
+                    <label>{{fondo.name}} </label>
+                    <button class="btn btn-danger btn-sm" type="button"
+                    (click)="eliminarTarea(tarea)"
+                    >
+                    Eliminar
+                  </button>
+                </div>
+            </li>
+          </ul> -->
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre del Fondo</th>
+                <th>Valor</th>
+                <th>Fecha de Registro</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let fondo of this.listaClienteFondo">
+                <td>{{ fondo.nombre }}</td>
+                <td>{{ fondo.valor }}</td>
+                <td>{{ fondo.fechaRegistro}}</td>
+                <td>{{ fondo.state }}</td>
+              </tr>
+            </tbody>
+          </table>
+          
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

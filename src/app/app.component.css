@@ -1,0 +1,31 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px; /* Espacio inferior para separar elementos */
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Estilos para las filas impares (alternar color) */
+  tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilos para la fila seleccionada (por ejemplo, al hacer clic) */
+  tr.selected {
+    background-color: #a0c4ff;
+  }
+  
+  /* Estilos para los encabezados de la tabla */
+  .table-header {
+    font-weight: bold;
+    text-align: center;
+  }
